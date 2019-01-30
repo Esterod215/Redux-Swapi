@@ -6,19 +6,22 @@ import { CharacterList } from "../components";
 import { getChars } from '../actions';
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
     // call our action
     this.props.getChars();
+    console.log(this.props);
   }
 
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      
       <h3>Loading Star Wars Characters....</h3>
+      
     }
     return (
       <div className="CharactersList_wrapper">

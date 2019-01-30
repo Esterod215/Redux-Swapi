@@ -3,12 +3,14 @@ STAR_WARS_FETCH,
 STAR_WARS_FETCH_SUCCESS,
 STAR_WARS_FETCH_FAILURE
 } from "../actions";
+
 const initialState = {
   characters: [],
   fetching:false,
   error:null
   // Array characters, Boolean fetching, null error.
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case STAR_WARS_FETCH:
@@ -16,8 +18,8 @@ export const charsReducer = (state = initialState, action) => {
     case STAR_WARS_FETCH_SUCCESS:
     return{
       ...state, 
-      characters:[...state.chracters,...action.payload],
-      fetching:true
+      characters: action.payload,
+      fetching: false
   };
   case STAR_WARS_FETCH_FAILURE:
   return {...state,fetching:false,error:action.payload};
